@@ -12,8 +12,7 @@ const loadData = async() =>{
     
 }
 const loadCategoryData = async() =>{
-//   const spinner=  document.getElementById("spinner")
-//     spinner.classList.add('hidden')
+  
     const response = await fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
     const data = await response.json()
     btnShowEachPet(data.categories)
@@ -22,6 +21,7 @@ const loadCategoryData = async() =>{
 
 
 const btnShowEachPet = (category) =>{
+    
    
     const btnshoweachpet = document.getElementById('btnshoweachpet')
     console.log(category);
@@ -42,16 +42,16 @@ const btnShowEachPet = (category) =>{
 // spacific btn click and show data
 
 const spacificCategory=async(anyid)=>{
-//    const spinner= document.getElementById("spinner")
-//    spinner.classList.remove("hidden");
-//     console.log("add ho bal")
-//     setTimeout(()=> {
+    // document.getElementById("spinner").classList.add("block");
+    //  console.log("add ho bal")
+    //  setTimeout(()=> {
+         
+         
+    //     console.log('mama tumi ascho');               // Calls loadData() after 5 seconds
         
-        
-//     displayData();               // Calls loadData() after 5 seconds
-       
-//     }, 5000);
-
+    //  }, 5000);
+ 
+   
     const response = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${anyid}`)
     const data = await response.json()
     displayData(data.data)
@@ -71,6 +71,7 @@ loadCategoryData()
 
 // display all data
 const displayData=(fulldata)=>{
+    
    
    
 
@@ -117,15 +118,17 @@ const displayData=(fulldata)=>{
                                <div class="divider"></div>
                                <div class="flex justify-between">
                                 <button  onclick = "likeImageShow('${image}')" class="rounded-md py-2 px-3  outline outline-1 text-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
-                                <button class="rounded-md font-bold outline outline-1 px-4 py-2 text-[#0E7A81]">Adopt</button>
+                                <button onclick ="adoptModal()" class="rounded-md font-bold outline outline-1 px-4 py-2 text-[#0E7A81]">Adopt</button>
                                 <button onclick="addingModal('${petId}')" class="rounded-md px-4 py-2 font-bold outline outline-1 text-[#0E7A81]">Details</button>
                                </div>
                                 </div>
                               </div>
                               
         `
+
        
         datashowcontainer.appendChild(card)
+        
         
     });
    
@@ -196,6 +199,50 @@ const addingmodalspcific=(pet)=>{
  
 
 document.getElementById('custommodal').showModal()
+
+}
+
+const adoptModal =()=>{
+    const adopmodal = document.getElementById('modal-content')
+    
+    
+        document.getElementById('custommodaladoption').showModal()
+    
+}
+
+const counting=(id)=>{
+    
+    
+   
+    
+     
+   
+ const count = setInterval(() => {
+   const adopt =document.getElementById('custommodaladoption')
+    const previousCount = document.getElementById('count').innerText
+    const Countparseint = parseInt(previousCount)
+    let sum = Countparseint -1
+  
+  
+    if(sum <=0){
+        adopt.classList.add("hidden");
+        clearInterval(count);
+        
+       
+    }
+    
+    document.getElementById('count').innerText = sum
+    
+    
+  }, 1000);
+  
+ 
+   
+   
+
+}
+
+const sortingBtn = () =>{
 
 }
 

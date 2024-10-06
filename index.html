@@ -33,7 +33,7 @@
                      src="images/logo.webp" alt="" srcset="">
                     <p class="text-2xl font-black">Peddy</p>
                 </div>
-                <div>
+                <div class="hidden lg:block">
                     <ul class="flex gap-8">
                         <li>Home</li>
                         <li>Shop</li>
@@ -51,7 +51,7 @@
             <div class="lg:w-9/12 mx-auto space-y-6 py-8">
                 <h3 class="font-bold text-2xl text-[#13131399]">Bringing Families Together ❤️‍🔥 
                    </h3>
-                <h1 class="font-black text-7xl "> Your Path to Adoption Starts Here</h1>
+                <h1 class="font-black text-4xl lg:text-7xl "> Your Path to Adoption Starts Here</h1>
                 <p class="text-xl ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
                 <button class="btn bg-[#0E7A81] font-bold text-white">View More</button>
             </div>
@@ -65,7 +65,7 @@
          <div class="text-center space-y-4 lg:w-9/12 mx-auto">
             <h2 class="font-black text-4xl">Adopt  Your  Best Friend</h2>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
-            <div id="btnshoweachpet" class="grid grid-cols-4">
+            <div id="btnshoweachpet" class="grid md:grid-cols-2  gap-4 grid-cols-1 lg:grid-cols-4">
                 <!-- <button class="btn px-4 py-3 border-[#0E7A811A]    hover:rounded-3xl ">
                     <img src="images/logo.webp" alt="" srcset="">
                     dogs</button> -->
@@ -76,14 +76,14 @@
         </section>
         <section class="py-8">
             <!-- Best Deal For you -->
-             <div class="flex justify-between">
+             <div class="lg:flex justify-between">
                 <h3 class="font-bold text-2xl py-8">Best Deal For you</h3>
-                <button class="text-white text-xl  btn btn-lg bg-[#0E7A81]">Sort by Price</button>
+                <button id="sort" onclick="sortingBtn()" class="text-white text-xl  btn btn-lg bg-[#0E7A81]">Sort by Price</button>
              </div>
-             <div class="flex gap-4">
-                <div class="w-8/12 mx-auto">
+             <div class="lg:flex lg:gap-5">
+                <div class="lg:w-8/12 lg:mb-0  md:mb-10 sm:mb-10 mx-auto">
                    <div>
-                    <div id="datashowcontainer" class="grid grid-cols-3 gap-4">
+                    <div id="datashowcontainer" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
 
                         <!-- spinnerload start-->
                         <!-- <span class="loading loading-bars loading-xs"></span>
@@ -122,7 +122,7 @@
                     </div>
                    </div>
                 </div>
-                <div class="w-4/12 mx-auto
+                <div class="lg:w-4/12 mx-auto
                 border p-4 border-gray-300  rounded-xl">
                     <div id="showimage" class="grid grid-cols-2 gap-2">
                        
@@ -135,10 +135,10 @@
     
         </section>
     </main>
-    <footer class=" mx-auto bg-black lg:py-12">
-        <div class="w-11/12 mx-auto flex justify-between">
+    <footer class=" mx-auto bg-black py-8 lg:py-12">
+        <div class="w-11/12 mx-auto lg:flex justify-between">
             <div class="space-y-4">
-                <div class="flex gap-2">
+                <div class=" gap-2">
                     <img  class="w-7 object-fill"
                      src="images/logo.webp" alt="" srcset="">
                     <p class="text-2xl font-extrabold text-white">Peddy</p>
@@ -149,7 +149,7 @@
                          <p>Email: info@yourdomain.com</p>
                          <p>Openings hours: 9.00 AM - 5.00 PM</p>
                 </div>
-                <div class="flex gap-2">
+                <div class="flex py-4 gap-2">
                     <img src="https://img.icons8.com/?size=48&id=118497&format=png" alt="">
                     <img src="https://img.icons8.com/?size=48&id=ClbD5JTFM7FA&format=png" alt="">
                     <img src="https://img.icons8.com/?size=48&id=19318&format=png" alt="">
@@ -204,16 +204,18 @@
 <!-- adopt btn -->
 
 
-<dialog id="custommodal" class="modal">
+<dialog id="custommodaladoption" class="modal">
     <div class="modal-box">
-      <div id="modal-content">
-        <p class="font-bold text-2xl">Congrarualtion</p>
+      <img class="mx-auto w-40 animate-bounce" src="https://img.icons8.com/?size=80&id=TGGyAyBJKGRc&format=png" alt="">
+      <div id="modal-content" class="text-center space-y-4">
+        <h2 class="font-black text-3xl">Congrarualtion</h2>
+        <p class="text-xl text-gray-600">Adoption process is start for your pet</p>
   
       </div>
-      <div class="">
+      <div class=" text-center">
         <form method="dialog" class="pt-4">
           <!-- if there is a button in form, it will close the modal -->
-          <button class="w-full outline outline-1 outline-[#0E7A81] text-[#0E7A81] text-center btn">Close</button>
+          <button id="count" onclick="counting()" class="text-center text-3xl font-black">3</button>
         </form>
       </div>
     </div>
