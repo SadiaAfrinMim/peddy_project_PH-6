@@ -34,7 +34,7 @@
                     <p class="text-2xl font-black">Peddy</p>
                 </div>
                 <div class="hidden lg:block">
-                    <ul class="flex gap-8">
+                    <ul class="flex gap-8 font-bold">
                         <li>Home</li>
                         <li>Shop</li>
                         <li>Contact</li>
@@ -42,7 +42,7 @@
                 </div>
                 <div>
                     <span class="  bg-white
-                     p-3 border-2 rounded-full"><i class="fa-regular fa-user"></i></span>
+                     p-2 border-2 rounded-full"><i class="fa-regular fa-user"></i></span>
                 </div>
             </div>
         </nav>
@@ -52,8 +52,10 @@
                 <h3 class="font-bold text-2xl text-[#13131399]">Bringing Families Together ❤️‍🔥 
                    </h3>
                 <h1 class="font-black text-4xl lg:text-7xl "> Your Path to Adoption Starts Here</h1>
-                <p class="text-xl ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
-                <button class="btn bg-[#0E7A81] font-bold text-white">View More</button>
+                <p class="text-xl pb-8 ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <a href="#datashowcontainer">
+                  <button  class="btn bg-[#0E7A81]  font-bold text-white">View More</button>
+                </a>
             </div>
          </div>
          <!-- banner image -->
@@ -78,7 +80,7 @@
             <!-- Best Deal For you -->
              <div class="flex justify-between">
                 <h3 class="font-bold text-2xl py-8">Best Deal For you</h3>
-                <button id="sort" onclick="sortingBtn()" class="text-white text-xl  btn btn-lg bg-[#0E7A81]">Sort by Price</button>
+                <button id="sort" onclick="sortingPriceData()" class="text-white text-xl  btn btn-lg bg-[#0E7A81]">Sort by Price</button>
              </div>
              <div class="lg:flex lg:gap-5">
                 <div class="lg:w-8/12 lg:mb-0 mb-10 mx-auto">
@@ -89,9 +91,7 @@
                         <!-- <span class="loading loading-bars loading-xs"></span>
                         <span class="loading loading-bars loading-sm"></span>
                         <span class="loading loading-bars loading-md"></span> -->
-                       <div id="spinner">
-                        <span  class="loading  loading-bars loading-lg"></span>
-                       </div>
+                       
                          <!-- spinnerload end -->
                         <!-- dynamic grid-start -->
                         <!-- <div class="card bg-base-100 p-4 border border-gray-300  shadow-xl">
@@ -170,7 +170,7 @@
             <div class=" space-y-4">
                 <h4 class="text-xl text-white font-bold">Drop a Message</h4>
                 <input class="px-4 py-3 block w-full rounded-2xl text-white bg-[#ffffff6d]" type="email" name="" placeholder="write a email" id="">
-                <button class="btn px-4 w-full text-xl py-2 border-none text-white bg-[#0E7A81] rounded-2xl">Subscribe</button>
+                <button  class="btn px-4 w-full text-xl py-2 border-none text-white bg-[#0E7A81] rounded-2xl">Subscribe</button>
 
             </div>
         </div>
@@ -204,20 +204,15 @@
 <!-- adopt btn -->
 
 
-<dialog id="custommodaladoption" onclick="counting()" class="modal">
+<dialog id="custommodaladoption"  class="modal">
     <div class="modal-box">
-      <img class="mx-auto w-40 animate-bounce" src="https://img.icons8.com/?size=80&id=TGGyAyBJKGRc&format=png" alt="">
+      <img class="mx-auto w-30 animate-bounce" src="https://img.icons8.com/?size=80&id=TGGyAyBJKGRc&format=png" alt="">
       <div id="modal-content" class="text-center space-y-4">
         <h2 class="font-black text-3xl">Congrarualtion</h2>
         <p class="text-xl text-gray-600">Adoption process is start for your pet</p>
   
       </div>
-      <div class=" text-center">
-        <form class="pt-4">
-          <!-- if there is a button in form, it will close the modal -->
-          <button id="count" class="text-center text-3xl font-black"></button>
-        </form>
-      </div>
+       <h1 id="count" class="text-center font-bold text-4xl">3</h1>
     </div>
   </dialog>
 
