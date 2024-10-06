@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +65,7 @@
          <div class="text-center space-y-4 lg:w-9/12 mx-auto">
             <h2 class="font-black text-4xl">Adopt  Your  Best Friend</h2>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
-            <div id="btnshoweachpet" class="grid md:grid-cols-2  gap-4 grid-cols-1 lg:grid-cols-4">
+            <div id="btnshoweachpet" class="grid grid-cols-2  gap-10  lg:grid-cols-4">
                 <!-- <button class="btn px-4 py-3 border-[#0E7A811A]    hover:rounded-3xl ">
                     <img src="images/logo.webp" alt="" srcset="">
                     dogs</button> -->
@@ -76,12 +76,12 @@
         </section>
         <section class="py-8">
             <!-- Best Deal For you -->
-             <div class="lg:flex justify-between">
+             <div class="flex justify-between">
                 <h3 class="font-bold text-2xl py-8">Best Deal For you</h3>
                 <button id="sort" onclick="sortingBtn()" class="text-white text-xl  btn btn-lg bg-[#0E7A81]">Sort by Price</button>
              </div>
              <div class="lg:flex lg:gap-5">
-                <div class="lg:w-8/12 lg:mb-0  md:mb-10 sm:mb-10 mx-auto">
+                <div class="lg:w-8/12 lg:mb-0 mb-10 mx-auto">
                    <div>
                     <div id="datashowcontainer" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
 
@@ -89,7 +89,7 @@
                         <!-- <span class="loading loading-bars loading-xs"></span>
                         <span class="loading loading-bars loading-sm"></span>
                         <span class="loading loading-bars loading-md"></span> -->
-                       <div id="spinner" class="hidden">
+                       <div id="spinner">
                         <span  class="loading  loading-bars loading-lg"></span>
                        </div>
                          <!-- spinnerload end -->
@@ -136,7 +136,7 @@
         </section>
     </main>
     <footer class=" mx-auto bg-black py-8 lg:py-12">
-        <div class="w-11/12 mx-auto lg:flex justify-between">
+        <div class="w-11/12 mx-auto lg:flex md:flex justify-between">
             <div class="space-y-4">
                 <div class=" gap-2">
                     <img  class="w-7 object-fill"
@@ -204,7 +204,7 @@
 <!-- adopt btn -->
 
 
-<dialog id="custommodaladoption" class="modal">
+<dialog id="custommodaladoption" onclick="counting()" class="modal">
     <div class="modal-box">
       <img class="mx-auto w-40 animate-bounce" src="https://img.icons8.com/?size=80&id=TGGyAyBJKGRc&format=png" alt="">
       <div id="modal-content" class="text-center space-y-4">
@@ -213,9 +213,9 @@
   
       </div>
       <div class=" text-center">
-        <form method="dialog" class="pt-4">
+        <form class="pt-4">
           <!-- if there is a button in form, it will close the modal -->
-          <button id="count" onclick="counting()" class="text-center text-3xl font-black">3</button>
+          <button id="count" class="text-center text-3xl font-black"></button>
         </form>
       </div>
     </div>

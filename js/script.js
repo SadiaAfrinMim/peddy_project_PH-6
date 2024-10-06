@@ -42,19 +42,35 @@ const btnShowEachPet = (category) =>{
 // spacific btn click and show data
 
 const spacificCategory=async(anyid)=>{
-    // document.getElementById("spinner").classList.add("block");
-    //  console.log("add ho bal")
-    //  setTimeout(()=> {
-         
-         
-    //     console.log('mama tumi ascho');               // Calls loadData() after 5 seconds
+  
+  const  datashowcontainer= document.getElementById('datashowcontainer')
+    const totalTime = 2000;
+    const interval = 1000;
+  
+    let slice = totalTime / interval;
+     
+    const intvId = setInterval(function() {
+      
+        datashowcontainer.innerHTML= ` <div id="spinner">
+                        <span  class="loading  loading-bars loading-lg"></span>
+                       </div>`
         
-    //  }, 5000);
+      slice = slice - 1;
+    }, interval);
+  
+    setTimeout(function() {
+        
+        displayData(data.data) 
+      clearInterval(intvId);
+      
+    }, totalTime);
+    
+  
  
    
     const response = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${anyid}`)
     const data = await response.json()
-    displayData(data.data)
+    
     
     
     
@@ -82,8 +98,8 @@ const displayData=(fulldata)=>{
         datashowcontainer.classList.remove('grid')
         datashowcontainer.innerHTML = `
         <div class="bg-purple-300 lg:py-12 rounded-xl">
-        <img class="mx-auto" src="images/error.webp" alt="">
-        <h1 class="text-5xl text-center font-bold">NO Available Information</h1>
+        <img class="mx-auto animate-pulse" src="images/error.webp" alt="">
+        <h1 class="text-5xl text-center font-bold">No Available Information</h1>
      </div>
         `
 
@@ -101,7 +117,7 @@ const displayData=(fulldata)=>{
         card.innerHTML = `
         <div class="card bg-base-100 p-4 border border-gray-300  shadow-xl">
                                 <figure class="">
-                                  <img
+                                  <img class="w-full h-[180px] object-cover rounded-xl"
                                     src=${image}
                                     alt="Shoes"
                                     class="rounded-xl" />
@@ -206,41 +222,45 @@ const adoptModal =()=>{
     const adopmodal = document.getElementById('modal-content')
     
     
-        document.getElementById('custommodaladoption').showModal()
+      const modal =  document.getElementById('custommodaladoption').showModal()
     
 }
 
-const counting=(id)=>{
-    
+const counting=(()=>{
     
    
-    
-     
-   
- const count = setInterval(() => {
-   const adopt =document.getElementById('custommodaladoption')
-    const previousCount = document.getElementById('count').innerText
-    const Countparseint = parseInt(previousCount)
-    let sum = Countparseint -1
   
-  
-    if(sum <=0){
-        adopt.classList.add("hidden");
-        clearInterval(count);
+        const adopt =document.getElementById('custommodaladoption').showModal()
+        
         
        
-    }
+        
+
+        const totalTime = 3000;
+  const interval = 1000;
+
+  let slice = totalTime / interval;
+
+  const intvId = setInterval(function() {
+    adopt.innerText = ` ${slice} seconds`;
+    slice = slice - 1;
+  }, interval);
+
+  setTimeout(function() {
+   
+    clearInterval(intvId);
+    adopt.classList.add("hidden")
     
-    document.getElementById('count').innerText = sum
+  }, totalTime);
+
     
-    
-  }, 1000);
+  
   
  
    
    
 
-}
+})
 
 const sortingBtn = () =>{
 
