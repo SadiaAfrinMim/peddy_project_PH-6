@@ -158,9 +158,9 @@ const displayData = (fulldata) => {
                                  </div>
                                <div class="divider"></div>
                                <div class="flex justify-between gap-4">
-                                <button  onclick = "likeImageShow('${image}')" class="rounded-md lg:py-2 lg:px-3 py-3 px-4 outline outline-1 text-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
-                                <button id="btndisable" onclick ="counting()" class="rounded-md font-bold outline outline-1 lg:px-4 py-2 px-8 md: text-[#0E7A81]">Adopt</button>
-                                <button onclick="addingModal('${petId}')" class="rounded-md lg:px-4 py-2 px-8 font-bold outline outline-1 text-[#0E7A81]">Details</button>
+                                <button  onclick = "likeImageShow('${image}')" class="rounded-md lg:py-2 lg:px-3 py-3 px-4 border border-1 border-spacing-20 text-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
+                                <button id="btndisable" onclick ="counting()" class="rounded-md font-bold border border-1 border-spacing-20 lg:px-4 py-2 px-8 md: text-[#0E7A81]">Adopt</button>
+                                <button onclick="addingModal('${petId}')" class="rounded-md lg:px-4 py-2 px-8 font-bold border border-1 border-spacing-20 text-[#0E7A81]">Details</button>
                                </div>
                                 </div>
                               </div>
