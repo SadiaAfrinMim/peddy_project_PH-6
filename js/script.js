@@ -185,7 +185,7 @@ const sorting = async () => {
   const data = await response.json();
   const sortedData = sortingPriceData(data.pets);
 
-  const datashowcontainer = document.getElementById("datashowcontainer");
+const datashowcontainer = document.getElementById("datashowcontainer");
 const totalTime = 2000;
 const interval = 1000;
 
@@ -304,6 +304,6 @@ const counting = () => {
   }, 1000);
 };
 
-const sortingBtn = () => {};
+// load all data
 
 loadData();
