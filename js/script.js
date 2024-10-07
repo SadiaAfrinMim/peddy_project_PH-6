@@ -6,6 +6,7 @@ const loadData = async () => {
   );
   const data = await response.json();
   displayData(data.pets);
+ 
 };
 // Function to load category data
 const loadCategoryData = async () => {
@@ -63,9 +64,10 @@ const activateButton = (id) => {
 
 loadCategoryData();
 
+
 // spacific btn click and show data
 
-const spacificCategory = async (anyid) => {
+const spacificCategory = async (anyid) => { 
   const response = await fetch(
     `https://openapi.programming-hero.com/api/peddy/category/${anyid}`
   );
@@ -90,23 +92,29 @@ const spacificCategory = async (anyid) => {
   }, interval);
 
   setTimeout(function () {
-    clearInterval(intvId);
+    clearInterval(intvId);  
 
     displayData(data.data);
+    
   }, totalTime);
+  
 };
 
 loadCategoryData();
 
+
+
 // display all data
 const displayData = (fulldata) => {
+
+
   const datashowcontainer = document.getElementById("datashowcontainer");
   datashowcontainer.innerHTML = " ";
   // data show na korle no content show korbe tar condition
   if (fulldata.length === 0) {
     datashowcontainer.classList.remove("grid");
     datashowcontainer.innerHTML = `
-        <div class="bg-purple-300 lg:py-12 rounded-xl">
+        <div class="bg-purple-300 lg:py-12 py-8 rounded-xl">
         <img class="mx-auto animate-pulse" src="images/error.webp" alt="">
         <h1 class="text-5xl text-center font-bold">No Available Information</h1>
      </div>
@@ -133,26 +141,26 @@ const displayData = (fulldata) => {
                                     pet_name ? pet_name : "not found"
                                   }</h2>
                                  <div class="space-y-2 text-[#131313B3]">
-                                    <p><i class="fa-solid fa-cookie-bite"></i></i>Breed: ${
+                                    <p><i class="fa-solid fa-cookie-bite"></i></i>&nbsp &nbspBreed: ${
                                       breed ? breed : "not found"
                                     }</p>
-                                    <p><i class="fa-solid fa-calendar-days"></i>Birth: ${
+                                    <p><i class="fa-solid fa-calendar-days"></i>&nbsp &nbspBirth: ${
                                       date_of_birth
                                         ? date_of_birth
                                         : "not available"
                                     }</p>
-                                    <p><i class="fa-solid fa-venus-mars"></i>Gender: ${
+                                    <p><i class="fa-solid fa-venus-mars"></i>&nbsp &nbspGender: ${
                                       gender ? gender : "unknown"
                                     }</p>
-                                    <p><i class="fa-solid fa-dollar-sign"></i>Price : ${
-                                      price ? price : "not found"
+                                    <p><i class="fa-solid fa-dollar-sign"></i>&nbsp &nbspPrice : ${
+                                      price ? `${price}$` : "not found"
                                     }</p>
                                  </div>
                                <div class="divider"></div>
-                               <div class="flex justify-between">
-                                <button  onclick = "likeImageShow('${image}')" class="rounded-md py-2 px-3  outline outline-1 text-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
-                                <button id="btndisable" onclick ="counting()" class="rounded-md font-bold outline outline-1 px-4 py-2 text-[#0E7A81]">Adopt</button>
-                                <button onclick="addingModal('${petId}')" class="rounded-md px-4 py-2 font-bold outline outline-1 text-[#0E7A81]">Details</button>
+                               <div class="flex justify-between gap-4">
+                                <button  onclick = "likeImageShow('${image}')" class="rounded-md lg:py-2 lg:px-3 py-3 px-4 outline outline-1 text-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
+                                <button id="btndisable" onclick ="counting()" class="rounded-md font-bold outline outline-1 lg:px-4 py-2 px-8 md: text-[#0E7A81]">Adopt</button>
+                                <button onclick="addingModal('${petId}')" class="rounded-md lg:px-4 py-2 px-8 font-bold outline outline-1 text-[#0E7A81]">Details</button>
                                </div>
                                 </div>
                               </div>
@@ -162,6 +170,47 @@ const displayData = (fulldata) => {
     datashowcontainer.appendChild(card);
   });
 };
+
+const sortingPriceData = (allPrice) => {
+  return allPrice.sort((a, b) => {
+      const priceA = a.price ? a.price : 0;
+      const priceB = b.price ? b.price : 0;
+      return priceB - priceA;  // Sort in descending order by price
+  });
+};
+
+// Sorting function (triggered by button click)
+const sorting = async () => {
+  const response = await fetch(`https://openapi.programming-hero.com/api/peddy/pets`);
+  const data = await response.json();
+  const sortedData = sortingPriceData(data.pets);
+
+  const datashowcontainer = document.getElementById("datashowcontainer");
+const totalTime = 2000;
+const interval = 1000;
+
+let slice = totalTime / interval;
+
+const intvId = setInterval(function () {
+  datashowcontainer.classList.remove("grid");
+  datashowcontainer.innerHTML = ` 
+                     <div class="flex justify-center items-center h-full">
+          <span class="loading loading-bars loading-lg"></span>
+      </div>
+                     `;
+
+  slice = slice - 1;
+}, interval);
+
+setTimeout(function () {
+  clearInterval(intvId);  
+  displayData(sortedData);
+  
+}, totalTime);
+  
+};
+
+
 // show all clicked images
 const likeImageShow = (image) => {
   const showImageContainer = document.getElementById("showimage");
@@ -197,17 +246,20 @@ const addingmodalspcific = (pet) => {
         pet.pet_name ? pet.pet_name : "not found"
       }</h2>
      <div class="space-y-2 text-[#131313B3]">
-        <p><i class="fa-solid fa-cookie-bite"></i></i>Breed: ${
+        <p><i class="fa-solid fa-cookie-bite"></i></i>&nbsp &nbspBreed: ${
           pet.breed ? pet.breed : "not found"
         }</p>
-        <p><i class="fa-solid fa-calendar-days"></i>Birth: ${
-          pet.date_of_birth ? pet.date_of_birth : "not available"
+        <p><i class="fa-solid fa-calendar-days"></i>&nbsp &nbspBirth: ${
+          pet.date_of_birth.split("-")[2] ? pet.date_of_birth.split("-")[0] : "not available"
         }</p>
-        <p><i class="fa-solid fa-venus-mars"></i>Gender: ${
+        <p><i class="fa-solid fa-venus-mars"></i>&nbsp &nbspGender: ${
           pet.gender ? pet.gender : "unknown"
         }</p>
-        <p><i class="fa-solid fa-dollar-sign"></i>Price : ${
-          pet.price ? pet.price : "not found"
+        <p><i class="fa-solid fa-syringe"></i>&nbsp &nbspVaccinated status: ${
+          pet.vaccinated_status ? pet.vaccinated_status : "unknown"
+        }</p>
+        <p><i class="fa-solid fa-dollar-sign"></i>&nbsp &nbspPrice : ${
+          pet.price ?  `${pet.price}$` : "not found"
         }</p>
      </div>
    <div class="divider"></div>
