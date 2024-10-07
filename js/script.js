@@ -116,7 +116,7 @@ const displayData = (fulldata) => {
     datashowcontainer.innerHTML = `
         <div class="bg-purple-300 lg:py-12 py-8 rounded-xl">
         <img class="mx-auto animate-pulse" src="images/error.webp" alt="">
-        <h1 class="text-5xl text-center font-bold">No Available Information</h1>
+        <h1 class="lg:text-5xl text-3xl text-center font-bold">No Available Information</h1>
      </div>
         `;
   } else {
